@@ -29,6 +29,7 @@ class Contact(models.Model):
     created_date = models.DateField(default=timezone.now)
     description = models.TextField(blank=True)
     show = models.BooleanField(default=True)
+    show = models.BooleanField(default=True)
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
     category = models.ForeignKey(
         Category,
