@@ -5,22 +5,29 @@
   <div class="form-wrapper">
     <h2>Contact</h2>
     
-    <form 
-      action=""
+   <form 
+      action="{% url "contact:create" %}"
       method="POST"
       enctype="multipart/form-data"
     >
-      <div class="form-content">
+     {% csrf_token %}
+        {% comment %} pegando o label do form {% endcomment %}
+        {%for field in form%}        
         <div class="form-group">
-          <label for="id_first_name">LABEL</label>
-          <input type="text" name="first_name" maxlength="255" id="id_first_name">
+          <label for="{{ field.id.for.label }}"> {{ field.label }} </label>
+          {% comment %}  input  {% endcomment %}
+          {{ field }}
         </div>
+        {% endfor %}
+
       </div>
       <div class="form-content">
         <div class="form-group">
           <button class="btn" type="submit">Send</button>
         </div>
       </div>
-    </form>
-  </div>
+   </form>
+  
+  </div> 
+
 {% endblock content %}
