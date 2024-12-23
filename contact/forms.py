@@ -2,18 +2,22 @@ from django import forms # import modulo de formulario
 from django.core.exceptions import ValidationError ## validação de erros 
 from . import models
 
-
 class ContactForm(forms.ModelForm):
-    first_name = forms.CharField(
-     widget=forms.TextInput(
-     attrs={
-        'class': 'class-a class-b',
-        'placeholder': 'Escreva aqui',
-     }),
-         label='Primeiro nome',
-         help_text= 'texto de ajuda para usuario'
-    )
     
+    picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'class': 'classe-a classe-b',
+                'placeholder': 'Aqui veio do init',
+                'accept': 'image/*',
+            }
+        
+    
+      
+        )
+        
+    )
+
 
 
     # def __init__(self, *args, **kwargs):
@@ -32,6 +36,7 @@ class ContactForm(forms.ModelForm):
         fields = (
             'first_name', 'last_name', 'phone',
             'email', 'description', 'category',
+            'picture',
         )
     def clean(self):
         cleaned_data = self.cleaned_data
