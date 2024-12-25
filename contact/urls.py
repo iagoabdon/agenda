@@ -10,9 +10,18 @@ urlpatterns = [
     path('search/', views.search, name='search'), # type:ignore 
     path('', views.index, name='index'),  # type:ignore
 
-   #### (Create)CRUD ####
+   #### contact (Create)CRUD ####
 
      path('contact/create/', views.create, name='create'),  # type:ignore
      path('contact/<int:contact_id>/update/', views.update, name='update'),
      path('contact/<int:contact_id>/delete/', views.delete, name='delete'),
+
+  ### crud 
+
+  path('user/create/', views.register, name='register'),
+    
+
 ]  
+
+
+

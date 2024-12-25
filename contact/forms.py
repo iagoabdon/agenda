@@ -2,6 +2,10 @@ from django import forms # import modulo de formulario
 from django.core.exceptions import ValidationError ## validação de erros 
 from . import models
 
+
+from django.contrib.auth.forms import UserCreationForm
+
+
 class ContactForm(forms.ModelForm):
     
     picture = forms.ImageField(
@@ -67,4 +71,5 @@ class ContactForm(forms.ModelForm):
         print(first_name)
         return first_name
     
-             
+class RegisterForm(UserCreationForm):
+    ...
